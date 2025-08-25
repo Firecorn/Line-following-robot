@@ -18,34 +18,26 @@ void loop() {
   Serial.println("Ir left_sensor = " + String(left_ir));
   if (right_ir>900 && left_ir>900){
     digitalWrite(8, LOW);
+    digitalWrite(9, LOW);
+    digitalWrite(11, LOW);
+    digitalWrite(12, LOW);
+  }
+  if (right_ir<900 && left_ir>900){
+    digitalWrite(8, LOW);
     digitalWrite(9, HIGH);
+    digitalWrite(11, HIGH);
+    digitalWrite(12, LOW);
+  }
+  if (right_ir>900 && left_ir<900){
+    digitalWrite(8, HIGH);
+    digitalWrite(9, LOW);
     digitalWrite(11, LOW);
     digitalWrite(12, HIGH);
   }
-  if (right_ir<900 && left_ir>900){
-    //digitalWrite(8,LOW);
-    //digitalWrite(9,HIGH);
-    //digitalWrite(11, HIGH);
-   //digitalWrite(12,LOW);
-    digitalWrite(8,LOW);
-    digitalWrite(9,LOW);
+    if (right_ir<200 && left_ir<200){ 
+    digitalWrite(8, LOW);
+    digitalWrite(9, HIGH);
     digitalWrite(11, LOW);
-    digitalWrite(12,LOW);
-  }
-  if (right_ir>900 && left_ir<900){
-    //digitalWrite(8,HIGH);
-    //digitalWrite(9,LOW);
-    //digitalWrite(11, LOW);
-    //digitalWrite(12,HIGH);
-    digitalWrite(8,LOW);
-    digitalWrite(9,LOW);
-    digitalWrite(11, LOW);
-    digitalWrite(12,LOW);
-  }
-    if (right_ir<200 && left_ir<200){
-    digitalWrite(8,LOW);
-    digitalWrite(9,LOW);
-    digitalWrite(11, LOW);
-    digitalWrite(12,LOW);
+    digitalWrite(12, HIGH);
   }
 }
